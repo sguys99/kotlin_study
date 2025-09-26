@@ -94,3 +94,16 @@ fun checkNum(score: Int) {
         else -> println("okay")
     }
 }
+
+// 5. Array and List
+fun array(){
+    val array : Array<Int> = arrayOf(1, 2, 3)
+    val list : List<Int> = listOf(1, 2, 3)
+
+    val array2 : Array<Any> = arrayOf(1, "d", 3.4f)
+    val list2 : List<Any> = listOf(1, "c", 11L)
+
+    // 기본적으로 array는 뮤터블임. 값 변경 가능, 사이즈 변경 불가
+    array[0] = 3
+    // list 는 기본적으로 Immutable, get만있다. 변경하려면 Mutable list를 사용해야
+}
