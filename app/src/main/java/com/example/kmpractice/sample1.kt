@@ -25,6 +25,8 @@ fun main(){
     //
     checkNum(1)
 
+    forAndWhile()
+
 }
 
 // 1. 함수
@@ -113,10 +115,50 @@ fun array(){
     arrayList.add(10)
     arrayList.add(20)
     arrayList[0] = 20
+}
 
+// 6. 반복문: for, while
 
+fun forAndWhile(){
+    val students: ArrayList<String> = arrayListOf("joyce", "james", "jenny", "jennifer")
 
+    for (name: String in students){
+        println("${name}")
+    }
 
+    var sum: Int = 0
+    for (i: Int in 1..10){
+        sum += i
+    }
+    println(sum)
 
+    var stepSum: Int = 0
+    for (i: Int in 1..10 step 2){
+        stepSum += i
+    }
+    println(stepSum)
 
+    var downSum: Int = 0
+    for (i: Int in 10 downTo 1){
+        downSum += i
+    }
+    println(downSum)
+
+    var untilSum: Int = 0
+    for (i: Int in 1 until 10){ // 100을 포함하지 않는다.
+        untilSum += i
+    }
+    println(untilSum)
+
+    var index =0
+
+    while(index < 10){
+        println("current index: ${index}")
+        index++
+    }
+
+    // index와 함께 array list 사용하기
+    for ((index: Int, name: String) in students.withIndex()){
+        println("${index+1}번째 학생 : ${name}")
+    }
 }
