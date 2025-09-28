@@ -106,4 +106,17 @@ fun array(){
     // 기본적으로 array는 뮤터블임. 값 변경 가능, 사이즈 변경 불가
     array[0] = 3
     // list 는 기본적으로 Immutable, get만있다. 변경하려면 Mutable list를 사용해야
+    var result = list2.get(0)
+
+    // 뮤터블 리스트를 만들어보자.
+    var arrayList : ArrayList<Int> = arrayListOf<Int>()
+    arrayList.add(10)
+    arrayList.add(20)
+    arrayList[0] = 20
+
+
+
+
+
+
 }
