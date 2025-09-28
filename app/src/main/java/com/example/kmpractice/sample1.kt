@@ -27,6 +27,8 @@ fun main(){
 
     forAndWhile()
 
+    nullcheck()
+
 }
 
 // 1. 함수
@@ -160,5 +162,44 @@ fun forAndWhile(){
     // index와 함께 array list 사용하기
     for ((index: Int, name: String) in students.withIndex()){
         println("${index+1}번째 학생 : ${name}")
+    }
+}
+
+// 7. Nullable/ NonNull
+fun nullcheck(){
+    // NPE: Null pointer Exception
+
+    var name: String = "Joyce" // string은 Nonnull type이다
+    //var nullName: String = null
+    var nullName: String? = null //  널타입을 사용하려면 ?를 추가하면 됨. 따라서 타입을 추가해야한다.
+
+    // 다음의 경우 논널 타입만 사용가능
+    var nameInUpperCase: String = name.uppercase()
+
+    //var nullNameInUpperCase: String? = nullName.uppercase() 불가
+    // 다음과 같이 수정해야함. 널이 아니면 uppercase로 널이면 널을 반환하라는 의미
+    var nullNameInUpperCase: String? = nullName?.uppercase()
+
+    // 엘비스 프레슬리 연산자
+    // ?:
+    val lastName: String? = null
+    val fullName = name + " " + (lastName?: "No lastName")
+    println(fullName)
+
+    //!! 연산자
+    // 컴파일에게 널이 아니라고 명시해주는것
+
+}
+
+// !! 연산자 예시
+fun ignoreNulls(str : String?){
+    val mNotNull : String = str!! // 개발자가 절대 null이 아님을 컴파일러에게 명시
+
+    val upper : String = mNotNull.uppercase() // 이후 코딩에서는 ? 사용하지 않아도 됨
+
+// let함수
+    val email : String = "joycehongXXXX@nana.vom"
+    email?.let{// 널이 아니면 수행
+        println("my email is ${email}")
     }
 }
